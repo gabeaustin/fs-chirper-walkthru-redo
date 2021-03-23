@@ -14,7 +14,10 @@ export default {
         password: process.env.DB_PASSWORD,
         database: process.env.DB_SCHEMA  
     },
-    // this will make the port num a number and not a string - its using base 10 to make this happen
-    port: parseInt(process.env.PORT, 10)
+    app: {
+        // this will make the port num a number and not a string - its using base 10 to make this happen
+        port: parseInt(process.env.PORT, 10),
+        prefix: process.env.API_PREFIX
+    }
 }
 

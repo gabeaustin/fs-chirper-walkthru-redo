@@ -10,8 +10,8 @@ app.use(express.static('public')); // ?? look up why PUBLIC
 app.use(express.json()); // this is where we will make POST request to - it must be above the apiRouter
 // this will log the api routes - using Express middleware
 app.use(morgan("dev"));
-app.use(apiRouter);
+app.use(config.app.prefix, apiRouter);
 // if the route doesn't match then send to home page -- line below
 app.get("*", (req, res) => res.sendFile(path.join(__dirname, "../public/index.html")));
 
-app.listen(config.port, () => console.log(`Server listening on port: ${config.port}`));
+app.listen(config.app.port, () => console.log(`Server listening on port: ${config.app.port}`));
